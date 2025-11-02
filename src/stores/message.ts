@@ -12,4 +12,5 @@ export const useMessageStore = defineStore('message', {
       this.message = ''
     }
   }
+
 })

@@ -1,23 +1,25 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import { useMessageStore } from './stores/message' // 修正后的路径
+import { ref } from 'vue'
+import { useMessageStore } from './stores/message'
 import { storeToRefs } from 'pinia'
 const store = useMessageStore()
 const { message } = storeToRefs(store)
-import { ref } from 'vue'
 const globalPerPage = ref(2)
 </script>
 
 <template>
-  <div class="text-center font-sans text-gray-700 antialiased">
+  <SpeedInsights />
+  <div class="text-center font-sans text-gray-700 antialias"> 
     <header>
       <div id="flashMessage" class="animate-fade" v-if="message">
-       <h4>{{ message }}</h4>
+        <h4>{{ message }}</h4>
       </div>
+      <h1>Deploy with Vercel</h1>
+
       <div class="wrapper">
         <nav class="py-6">
           <RouterLink class="font-bold text-gray-700" exact-active-class="text-green-500" :to="{ name: 'event-list-view' }">Event</RouterLink> |
-          <RouterLink class="font-bold text-gray-700" exact-active-class="text-green-500" :to="{ name: 'students' }">Students</RouterLink> |
           <RouterLink class="font-bold text-gray-700" exact-active-class="text-green-500" :to="{ name: 'about' }">About</RouterLink>
         </nav>
         <div class="global-page-size">
@@ -40,7 +42,7 @@ const globalPerPage = ref(2)
 <style>
 
 
-nav {
+/* nav {
   padding: 30px;
 }
 
@@ -75,6 +77,16 @@ nav a.router-link-exact-active {
 h2 {
   font-size: 20px;
 }
+@keyframes yellofade {
+  from {
+    background-color: yellow;
+  }
+  to {
+    background-color: transparent;
+  }
+}
+#flashMessage {
+  animation: yellofade 3s ease-in-out;
+} */
 
-/* flash message animation moved to Tailwind animate-fade */
 </style>

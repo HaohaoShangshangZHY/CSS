@@ -1,17 +1,18 @@
+import './assets/style.css'
 import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
-import { createPinia } from 'pinia'
 import 'nprogress/nprogress.css'
-import './assets/style.css'
+import { inject } from '@vercel/analytics'
+inject()
 
 // import './assets/main.css'
 
 const app = createApp(App)
-
 const pinia = createPinia()
-app.use(pinia)
 
 app.use(router)
+app.use(pinia)
 
 app.mount('#app')

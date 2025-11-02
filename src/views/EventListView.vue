@@ -14,13 +14,13 @@ const props = defineProps({
     type: Number,
     required: true,
   },
-  perPage: {
-    type: Number,
-    default: 2,
-  }
+  // perPage: {
+  //   type: Number,
+  //   default: 2,
+  // }
 })
 const page = computed(() => props.page)
-const perPage = computed(() => props.perPage)
+// const perPage = computed(() => props.perPage)
 onMounted(() => {
   watchEffect(() => {
     EventService.getEvents(3, page.value)
@@ -59,13 +59,14 @@ onMounted(() => {
       >
     </div>
   </div>
+
 </template>
 <style scoped>
 
-  .pagination {
-    display: flex;
-    width: 290px;
-  }
+.pagination {
+  display: flex;
+  width: 290px;
+}
 .pagination a {
   flex: 1;
   text-decoration: none;
